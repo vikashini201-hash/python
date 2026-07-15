@@ -1,0 +1,61 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+n1=Node(10)
+n2=Node(15)
+n3=Node(20)
+n4=Node(30)
+n1.next=n2
+n2.next=n3
+n3.next=n4
+
+head=n1
+def display(head):
+    temp=head
+    while temp:
+        print(temp.data,end="->")
+        temp=temp.next
+    print("none")
+    
+print("insert at begining 5")
+new_node=Node(5)
+new_node.next=head
+head=new_node
+display(head)
+
+print("insert at middle 25")
+new_nodee=Node(25)
+temp=head
+while temp.data!=20:
+    temp=temp.next
+new_nodee.next=temp.next
+temp.next=new_nodee
+display(head)
+
+
+print("insert at end 40")
+new_nodeee=Node(40)
+temp=head
+while temp.next:
+    temp=temp.next
+temp.next=new_nodeee
+display(head)
+
+print("delete at begin 5")
+head=head.next
+display(head)
+
+print("delete at middle 25")
+temp=head
+while temp.next.data!=25:
+    temp=temp.next
+temp.next=temp.next.next
+display(head)
+
+print("delete at end 25")
+temp=head
+while temp.next.next:
+    temp=temp.next
+temp.next=None
+display(head)
